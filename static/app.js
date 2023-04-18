@@ -5,12 +5,11 @@ $('#main-table').hide()
 $('#main-form').hide()
 $("#main-form").attr("autocomplete", "off");
 
-$('#start-here').on('submit', function (evt) {
+$('#start-here').on('submit', async function (evt) {
 
     evt.preventDefault()
     reset()
-
-    let seconds = 4
+    let seconds = 60
     let interval = window.setInterval(function () {
 	$('#time').text(seconds)
 	seconds -= 1
@@ -21,10 +20,13 @@ $('#start-here').on('submit', function (evt) {
     }, 1000)
 })
 
+
+
 function endGame() {
     
     $('#main-form').hide()
     $('#start-here').show()
+    $('#new-board').show()
     $('#play').show()
     
 }
@@ -41,6 +43,7 @@ function reset() {
     $('#main-table').show()
     $('#main-form').show()
     $('#start-here').hide()
+    $('#new-board').hide()
     $('#play').hide()
 }
 

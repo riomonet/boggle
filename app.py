@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secretsarecool'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['TESTING'] = True
+app.config['DEBUG_TB_HOSTS'] = ['dont-show-debug-toolbar']
 debug = DebugToolbarExtension(app)
 
 boggle_game = Boggle()
@@ -39,9 +40,6 @@ def game_stats():
           session['high_score'] = score
     return jsonify(high_score = session['high_score'], num_games = session['num_games'])
 
-@app.route('/reset')
-def reset():
-    return redirect ('/boggle')
 
 def get_new_board ():
     board = boggle_game.make_board();
