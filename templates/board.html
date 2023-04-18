@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+	<h4 id="play">PLAY BOGGLE !</h4>
+	<form  id="start-here">
+	    <button  type="submit " id="start-game-button">Start Game</button>
+	</form>
+
+
+	
+	<table id="main-table">
+	{% for item in session['board'] %}
+	    <tr>
+	    {% for letter in item %}
+	    <td>{{letter}}</td>
+	    {% endfor %}
+	</tr> 
+	{% endfor %}
+	</table>
+
+
+	
+	<form id="main-form">
+	    <input id="input" name="word" type="text" />
+	    <button type="submit">submit</button>
+	</form>
+
+	<section id="player">
+	    <h4 id="player-message"></h4>
+	</section>
+
+
+	
+	<section id="pscoreboard">
+	    <table id="scoreboard-table">
+		<thead>
+		    <th>Word</th>
+		    <th>Result</th>
+		    <th>Score</th>
+		    <th>Time</th>
+		    <th>Games Played</th>
+		    <th>High Score</th>
+		</thead>
+		<tr>
+		    <td id="word"></td>
+		    <td id="result"></td>
+		    <td id="score"></td>
+		    <td id="time"></td>
+		    <td id="num_games"> </td>
+		    <td id="high_score"></td>
+		</tr>
+	    </table>
+	</section>
+
+
+{% endblock %}
+	    
